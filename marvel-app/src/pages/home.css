@@ -1,0 +1,91 @@
+/* Hero Banner */
+.hero-banner {
+  height: 100vh; /* Fullscreen height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add a semi-transparent overlay for better text readability */
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  z-index: 1; /* Place it behind the content */
+}
+
+/* Hero Content */
+.hero-content {
+  text-align: center;
+  color: #ffffff; /* White text */
+  z-index: 2; /* Ensure content is above the overlay */
+  position: relative; /* Ensure stacking context */
+}
+
+/* Marvel Logo */
+.marvel-logo {
+  width: 200px; /* Adjust size as needed */
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite; /* Floating animation */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Hero Title */
+.hero-title {
+  font-size: 2rem;
+  font-family: 'Share Tech Mono', monospace; /* Futuristic font */
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; /* Glowing text effect */
+  animation: glow 2s infinite alternate; /* Add glowing animation */
+}
+
+/* Floating Animation for Logo */
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05); /* Slight scaling effect */
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Glowing Animation */
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+  }
+  100% {
+    text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 1.5rem; /* Adjust font size for tablets */
+    padding: 0 1rem; /* Add padding for better spacing */
+  }
+
+  .marvel-logo {
+    width: 150px; /* Adjust logo size for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 1.2rem; /* Adjust font size for phones */
+    padding: 0 1rem; /* Add padding for better spacing */
+  }
+
+  .marvel-logo {
+    width: 120px; /* Adjust logo size for smaller screens */
+  }
+}
